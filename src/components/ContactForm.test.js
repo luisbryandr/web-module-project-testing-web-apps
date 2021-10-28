@@ -4,9 +4,12 @@ import userEvent from '@testing-library/user-event';
 
 import ContactForm from './ContactForm';
 
+//1) Sanity Test
 test('renders without errors', ()=>{
     render(<ContactForm />);
 });
+
+//2) Simple Test
 
 test('renders the contact form header', ()=> {
     //Arrange: 
@@ -17,8 +20,12 @@ test('renders the contact form header', ()=> {
     expect(header).toBeInTheDocument();
 });
 
+//3) Test causing me to look up Docs/ reference material and VS code explanation
 test('renders ONE error message if user enters less then 5 characters into firstname.', async () => {
-    
+    //Arrange:
+    render(<ContactForm />);
+    const firstNameError = screen.getByText(/first name/i);
+    await expect(firstNameError).toHaveErrorMessage;
 });
 
 test('renders THREE error messages if user enters no values into any fields.', async () => {
