@@ -24,11 +24,22 @@ test('renders the contact form header', ()=> {
 test('renders ONE error message if user enters less then 5 characters into firstname.', async () => {
     //Arrange:
     render(<ContactForm />);
-    const firstNameError = screen.getByText(/first name/i);
-    await expect(firstNameError).toHaveErrorMessage;
+    const firstNameError = await screen.getByText(/first name/i);
+     expect(firstNameError).toHaveErrorMessage;
 });
 
 test('renders THREE error messages if user enters no values into any fields.', async () => {
+    //Arange
+    render(<ContactForm />);
+    //Act:
+    // const fieldErrors = await screen.queryAllBy(i)
+    const firstNameError = await screen.getByText(/first name/i);
+    const lastNameError = await screen.getByText(/last Name/i);
+    const emailError = await screen.getByText(/email/i);
+    //Assert:
+    expect(firstNameError).toHaveErrorMessage;
+    expect(lastNameError).toHaveErrorMessage;
+    expect(emailError).toHaveErrorMessage;
     
 });
 
