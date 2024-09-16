@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DisplayComponent from './DisplayComponent';
 
+//globally placed initial state
 const formData = {
   firstName: "",
   lastName: "",
@@ -14,6 +15,8 @@ const errorData = {
   email: "",
   message: ""
 }
+
+// the component starts here
 
 const ContactForm = () => {
   const [displayData, setDisplayData] = useState(false);
